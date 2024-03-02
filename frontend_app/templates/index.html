@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Manager Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        p{
+            text-align:justify;
+            padding-left:400px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #fff;
+            color: #6B016D;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav a {
+            color: #6B016D;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        section {
+            padding: 50px;
+            color: #333;
+            text-align: center;
+        }
+       
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-links,
+        .social-icons,
+        .newsletter,
+        .footer-info {
+            flex: 1 1 300px;
+            margin-bottom: 20px;
+        }
+        .footer-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        .footer-links ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .newsletter input[type="email"],
+        .newsletter button {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            font-size: 14px;
+        }
+        .newsletter button {
+            background-color: #ff5e14;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .footer-info p {
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links,
+            .social-icons,
+            .newsletter,
+            .footer-info {
+                margin: 0 auto 20px;
+            }
+            .footer-links ul li {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            .social-icons a {
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+        /* Event Manager Theme */
+        header {
+            background-color: #2c3e50; /* Dark blue */
+            color: #fff;
+            text-align: center;
+            padding: 400px 0;
+            position: relative; /* Added for positioning */
+        }
+        
+        header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the entire header */
+        }
+        #about{
+            background:#f8f9fa;
+        }
+        
+        .event-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .event-info img {
+            max-width: 200px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        #services table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        #services th {
+            background-color: #6f42c1; /* Purple */
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #6f42c1; /* Purple */
+        }
+        
+        #services td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #6f42c1; /* Purple */
+        }
+        
+        #services tr:nth-child(even) {
+            background-color: #f8f9fa; /* Light gray */
+        }
+        
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            padding: 10px;
+            margin: 5px;
+            width: calc(50% - 10px);
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form textarea {
+            margin: 5px;
+            padding: 10px;
+            
+            height: 100px;
+        }
+        form button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .blog-post {
+            display: flex;
+            flex-wrap:wrap;
+            padding-right:200px;
+            margin-bottom: 20px;
+        }
+        .blog-post img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+        .blog-post p {
+            flex: 1;
+            text-align:justify;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <header>
+        <img src="https://i0.wp.com/blog.inevent.com/wp-content/uploads/2021/06/Leadership-in-event-management.jpg?fit=1180%2C570&ssl=1" alt="Image">
+        
+    </header>
+   
+    <section id="home">
+        <div class="event-info">
+            <img src="https://media.istockphoto.com/id/1437440439/id/foto/ikon-megaphone-simbol-speaker-promosi-pemberitahuan-siaran-ikon-pada-ilustrasi-3d-latar.jpg?s=612x612&w=0&k=20&c=mulXyfne8HUfpJJCCO4s7ja1JqzLHVD9UMTavIEqvrk=" alt="Event Image">
+            <div>
+                <h2>Event Title</h2>
+                <p>Date: DD/MM/YYYY</p>
+                <p>Location: Event Location</p>
+            </div>
+        </div>
+        <h2>Event Details</h2>
+        <p>Join us for an unforgettable evening as we gather to celebrate College Functions. <br>Indulge in delicious food, enjoy live entertainment, and create lasting memories with friends and loved ones. <br>Dress to impress and get ready for an evening filled with joy and laughter!
+
+            <Br>RSVP by 11:59 today to secure your spot at this exclusive event. We can't wait to celebrate with you!"</p>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>"Eventify Pro: Where Every Event is Exceptional"<br>
+
+            At Eventify Pro, we are dedicated to making your events extraordinary. <br>Our team of experienced event planners and designers is committed to bringing your vision to life and creating<br> memorable experiences for you and your guests.
+            
+            From weddings to corporate events, we handle every detail with care and precision,
+            text-align:justify; ensuring that your event is flawless from start to finish. <br>With Eventify Pro, you can relax and enjoy your event while we take care of the rest.<br>
+            
+            Let us turn your dreams into reality. Choose Eventify Pro for your next event and make it truly unforgettable.</p>
+    </section>
+    <section id="services">
+        <section id="services">
+            <h2>Our Services</h2>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Event Planning</td>
+                    <td>Comprehensive event planning services including concept development, venue selection, vendor management, and budgeting.</td>
+                </tr>
+                <tr>
+                    <td>On-site Coordination</td>
+                    <td>Professional on-site coordination and management to ensure smooth execution of events and resolve any issues.</td>
+                </tr>
+                <tr>
+                    <td>Decor and Design</td>
+                    <td>Unique and creative decor and design services tailored to the theme and ambiance of the event.</td>
+                </tr>
+                <tr>
+                    <td>Entertainment</td>
+                    <td>Wide range of entertainment options including live music, DJs, performers, and interactive activities.</td>
+                </tr>
+            </table>
+        </section>
+        
+    </section>
+    <section id="portfolio">
+        <h2>Our Portfolio</h2>
+        <div class="blog-post">
+            <img src="https://graphicriver.img.customer.envatousercontent.com/files/445965689/590previewx.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=590&s=aa3da564a67c48a07fbf1a30f8986333" alt="Blog Post Image">
+            <p>Get ready for the ultimate gaming experience! Join us for a day filled with intense competitions, exciting challenges,<br> and prizes galore. Whether you're a casual player or a hardcore gamer, there's something for everyone at our gaming event.<br>
+
+                Compete against friends and rivals in popular games, test your skills in thrilling tournaments, and <br>enjoy a day of gaming like never before. Don't miss out on this epic event –<br> RSVP now to secure your spot!"
+                
+                </p>
+        </div>
+        <div class="blog-post">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3j3PyYLsHz2xgGv3MN_T7CZAkz-JTz4bkxw&usqp=CAU" alt="Blog Post Image">
+            <p>Ut interdum lorem sed metus ullamcorper, ac aliquam risus consequat.</p>
+        </div>
+    </section>
+    <section id="blog">
+        <h2>Latest Blog Posts</h2>
+        <div class="blog-post">
+            <img src="https://image.wedmegood.com/resized/540X/uploads/vendor_cover_pic/52052/b2b09aae-7724-46c4-8c9d-2e106def4259.jpg" alt="Blog Post Image">
+            <p>"Capturing Love: Our Latest Wedding Celebration"<br>
+
+                Step into a world of enchantment as we share highlights from our recent wedding event. 
+                <br>From stunning decor to heartfelt moments, join us on a journey through this unforgettable celebration of love.</p>
+        </div>
+        <div class="blog-post">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2021/8/QJ/TB/KC/48807917/product-jpeg-500x500.jpg" alt="Blog Post Image">
+            <p>"Joyful Celebrations: Highlights from Our Latest Birthday Bash"<br>
+
+                Step into a world of fun and laughter as we share glimpses from our recent birthday celebration. 
+                <br>From colorful decorations to heartfelt moments, join us in reliving the joyous festivities!</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <h3>Follow Us</h3>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+            </div>
+            <div class="newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 Event Manager. All Rights Reserved.</p>
+                <p>Designed by Your Name</p>
+                <p>Contact Us: contact@eventmanager.com</p>
+                <p>123 Event Avenue, City, Country</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
